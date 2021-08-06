@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <footer th:fragment="wynik">
+      <p class="text-muted font-weight-light" style="font-size: 18px; font-weight: 600; font-family: monospace;"
+          th:text="${amountToCalc} + ' ' + ${basecurrency} + '  = ' ">  </p>
+
+      <p class="text-success font-weight-bold" style="font-size: 32px; font-weight: 900; font-family: monospace;" 
+            th:text="${amountCalculated} + ' ' + ${pickedCurrency}">  </p><br>
+
+      <p class="text-muted font-weight-light" style="font-size: 14px; font-weight: 300; font-family: monospace;" 
+      th:text=" '1.00 ' + ${basecurrency} + ' = '  + ${exchanged} + ' ' + ${pickedCurrency} "></p>
+
+      <p class="text-muted font-weight-light" style="font-size: 14px; font-weight: 300; font-family: monospace;"
+      th:text=" '1.00 ' + ${pickedCurrency} + ' = ' + ${target} + ' ' + ${basecurrency} "></p>
+    </footer>
+</body>
+</html>
+

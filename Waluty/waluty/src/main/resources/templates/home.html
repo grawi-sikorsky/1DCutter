@@ -1,0 +1,160 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <title>1D Cutting Optimization</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav th:replace="fragments/navbar" xtra:strip-whitespace="shallow">Navbar tutaj</nav>
+  <!-- Navbar -->
+
+  <div class="jumbotron text-center">
+    <a href="http://localhost:8080/"><img class="headerimg" src="/img/logo-footer.png " /></a>
+    <p>Sztos.</p>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-9"><span class="fa fa-sign-out"></span>
+
+        <h3 style="text-align: center;">Co waść chcesz?</h3>
+
+        <div style="width:100%">
+          <form class="form-group" id="calc" method="GET">
+            <div style="display: inline-block;  width:25%">
+              <label for="amountToCalc">Ile:</label>
+              <input type="text" class="form-control" id="amountToCalc" th:name="amountToCalc"
+                th:value="${amountToCalc}">
+            </div>
+            <div style="display: inline-block; width:37%;">
+              <label for="base">Z:</label>
+              <select class="form-control" form="calc" name="base" id="base">
+                <option th:value="${basecurrency}" th:text="${basecurrency}" th:name="base" th:action="base">ooo
+                </option>
+              </select>
+            </div>
+            <div style="display: inline-block; width:37%;">
+              <label for="tar">Na:</label>
+              <select class="form-control" form="calc" name="tar" id="tar">
+                <option th:value="${pickedCurrency}" th:text="${pickedCurrency}">Currency picked bifor</option>
+                <option th:each="instance : ${waluty}" th:value="${instance.key}" th:text="${instance.key}"
+                  th:name="tar"></option>
+              </select>
+            </div>
+          </form>
+          <div style="text-align: right; width:100%">
+            <input form="calc" class="btn btn-success btn-lg" type="submit" value="Konwertuj" />
+          </div>
+        </div>
+
+
+        <div style="width:100%; height: 200px; text-align: center;">
+          <div th:replace="fragments/wynik"></div>
+        </div>
+
+        <form id="kup" method="POST">
+          <button type="submit" class="btn btn-success btn-block" name="kuppan" value="kuppanseto" method="POST"> Kup
+          </button>
+        </form>
+
+        <button class="btn btn-danger btn-block" href=""> Sprzedaj </button>
+
+        <!-- <div style="width:100%; height: 200px; text-align: center;" th:insert="fragments/yt"></div> -->
+
+      </div>
+
+
+
+      <div class="col-sm-3">
+
+        <h3>Twoja waluta:</h3>
+        <div class="form-group blu-margin">
+          <select class="form-control">
+            <option th:value="${basecurrency}" th:text="${basecurrency}">ooo</option>
+          </select>
+        </div>
+
+        <div class="list-group" style="max-height: 400px; overflow: auto;">
+          <table>
+            <tr th:each="inst : ${currencies}" style="cursor: pointer" th:key="${inst.key}">
+              <td>
+                <form method="GET">
+                  <input type="hidden" name="amountToCalc" th:value="${amountToCalc}" />
+                  <input type="hidden" name="base" th:value="${basecurrency}" />
+                  <input type="hidden" name="tar" th:value="${inst.key}" />
+                  <button type="submit" th:text="${inst.key}" th:value="${inst.key}"
+                    class="list-group-item list-group-item-action list-group-item-primary"
+                    style="padding: 1px 10px;"></button>
+                </form>
+              </td>
+              <td>
+                <form method="POST">
+                  <button type="submit" th:text="${inst.value} + ' $'" th:value="${inst.key}"
+                    class="list-group-item list-group-item-action list-group-item-primary" style="padding: 1px 10px;"
+                    name="pick"></button>
+                </form>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <form class="form-group" method="POST">
+          <label for="lookfor">Szukaj waluty:</label><br>
+          <input type="text" id="lookfor" name="q"><br>
+        </form>
+
+        <div class="list-group" style="max-height: 400px; overflow: auto;">
+          <table>
+            <tr th:each="instance : ${waluty}" style="cursor: pointer" th:key="${instance.key}"
+              onclick="rowClicked(this.getAttribute('key'))">
+              <td><a th:text="${instance.key}" th:href="|?q=${instance.key}|"
+                  class="list-group-item list-group-item-action list-group-item-primary" style="padding: 1px 10px;"></a>
+              </td>
+              <td><a th:text="${instance.value}" th:href="|${instance.key}|"
+                  class="list-group-item list-group-item-action list-group-item-primary" style="padding: 1px 10px;"></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="list-group" style="max-height: 400px; overflow: auto;">
+          <table>
+            <tr th:each="ins : ${currnames}" style="cursor: pointer" th:key="${ins.key}"
+              onclick="rowClicked(this.getAttribute('key'))">
+              <td><a th:text="${ins.key}" th:href="|?q=${ins.key}|"
+                  class="list-group-item list-group-item-action list-group-item-primary" style="padding: 1px 10px;"></a>
+              </td>
+              <td><a th:text="${ins.value}" th:href="|${ins.key}|"
+                  class="list-group-item list-group-item-action list-group-item-primary" style="padding: 1px 10px;"></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  function rowClicked(value) {
+    location.href = "?pick=" + value;
+  }
+</script>
