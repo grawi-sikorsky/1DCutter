@@ -2,7 +2,6 @@ package pl.printo3d.waluty.repository;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +11,6 @@ import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import pl.printo3d.waluty.model.CutListModel;
 
 @Entity
 public class UserEntity implements UserDetails {
