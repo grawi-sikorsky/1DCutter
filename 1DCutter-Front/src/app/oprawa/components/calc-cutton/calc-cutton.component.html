@@ -1,0 +1,8 @@
+<div class="btn-calc">
+    <div *ngIf="isLoadingResults()" class="spinner-border text-success spinner-loading" role="status"></div>
+    <div *ngIf="!isLoadingResults()" class="spinner-border spinner-loading" role="status" hidden></div>
+    <button id="opti" class="btn btn-sm btn-success btn-block" (click)="onClickCalculate()" >
+        <i class="fas fa-play"></i> 
+        Oblicz!
+    </button>
+</div>
