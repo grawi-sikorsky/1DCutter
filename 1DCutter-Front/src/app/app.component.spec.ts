@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'OneDCutter-A'`, () => {
+  it(`should have as title '1D Cutting Optimizer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('OneDCutter-A');
+    expect(app.title).toEqual('1D Cutting Optimizer');
   });
 
   it('should render title', () => {

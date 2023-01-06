@@ -8,10 +8,10 @@
 		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pl.printo3d.onedcutter</groupId>
-	<artifactId>cutter1d</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<name>cutter1d</name>
+	<groupId>pl.js</groupId>
+	<artifactId>onedcutter</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<name>onedcutter</name>
 	<description>One dimmension cutting optimizer</description>
 	<properties>
 		<java.runtime.version>17</java.runtime.version>

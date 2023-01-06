@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/OneDCutter-A",
+            "outputPath": "dist/onedcutter-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "OneDCutter-A:build:production"
+              "browserTarget": "onedcutter-front:build:production"
             },
             "development": {
-              "browserTarget": "OneDCutter-A:build:development"
+              "browserTarget": "onedcutter-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "OneDCutter-A:build"
+            "browserTarget": "onedcutter-front:build"
           }
         },
         "test": {

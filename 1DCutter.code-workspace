@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "1DCutter-Back"
+		},
+		{
+			"path": "1DCutter-Front"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}

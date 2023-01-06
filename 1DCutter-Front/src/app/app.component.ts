@@ -6,7 +6,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
-  title = '1D Cutting Optimizer ';
+  title = '1D Cutting Optimizer';
 
   public isDark = false;
 
@@ -14,5 +14,5 @@ export class AppComponent{
   get themeMode()
   {
     return this.isDark ? 'dark-mode' : 'light-mode';
-  }  
+  }
 }
