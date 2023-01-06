@@ -10,7 +10,8 @@
             "request": "launch",
             "mainClass": "pl.js.onedcutter.OnedcutterApplication",
             "projectName": "onedcutter",
-            "envFile": "${workspaceFolder}/.docker/.env"
+            "envFile": "${workspaceFolder}/.docker/.env",
+            
         }
     ]
 }
