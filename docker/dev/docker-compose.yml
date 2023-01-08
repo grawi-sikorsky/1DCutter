@@ -40,6 +40,8 @@ services:
     #image: docker-angular-cutter:latest
     depends_on:
       - onedcutter-back
+    networks:
+      - onedcutter_network
     ports:
       - "80:80"
     volumes:
