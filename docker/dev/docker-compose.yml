@@ -18,7 +18,7 @@ services:
 
   onedcutter-back:
     build:
-      context: ../1DCutter-Back
+      context: ../../1DCutter-Back
     # image: apkatag:latest
     container_name: 1dcutter_back
     depends_on:
@@ -34,7 +34,7 @@ services:
 
   onedcutter-front:
     build: 
-      context: ../1DCutter-Front
+      context: ../../1DCutter-Front
     container_name: 1dcutter_front
     #image: 1dcutterangular
     #image: docker-angular-cutter:latest
