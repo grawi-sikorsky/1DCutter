@@ -7,7 +7,7 @@ COPY . .
 RUN mvn -B install -DskipTests
 
 # Run stage
-FROM openjdk:17
+FROM openjdk:17-alpine
 COPY --from=build ./target/*.jar ./
 # COPY --from=build ./target/onedcutter-0.1.0-SNAPSHOT.jar /app/onedcutter-0.1.0-SNAPSHOT.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/onedcutter-0.1.0-SNAPSHOT.jar"]
