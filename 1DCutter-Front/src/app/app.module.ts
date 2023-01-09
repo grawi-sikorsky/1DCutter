@@ -24,6 +24,7 @@ import { UserregisterComponent } from './oprawa/components/userregister/userregi
 import { UserService } from './oprawa/services/user.service';
 import { ResultService } from './cutter/services/result.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
 
 export function tokenGetter() {
   return localStorage.getItem("jwtToken");
@@ -59,8 +60,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: () => { return localStorage.getItem("jwtToken") },
-        allowedDomains: ["localhost:8080"],
-        disallowedRoutes: ["localhost:8080/auth/login"],
+        allowedDomains: ["localhost:8080","vps-b5ffb21c.vps.ovh.net:8080", environment.API_URL],
+        disallowedRoutes: ["localhost:8080/auth/login","vps-b5ffb21c.vps.ovh.net:8080/auth/login", environment.API_URL+"/auth/login" ],
       },
     }),
   ],
