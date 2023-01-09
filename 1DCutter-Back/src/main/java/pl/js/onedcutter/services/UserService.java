@@ -1,5 +1,6 @@
 package pl.js.onedcutter.services;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,8 @@ import pl.js.onedcutter.models.user.AuthResponse;
 import pl.js.onedcutter.models.user.UserModel;
 import pl.js.onedcutter.repo.UserRepo;
 import pl.js.onedcutter.utility.JWTUtil;
+
+import javax.swing.text.html.Option;
 
 @Service
 public class UserService {
@@ -83,8 +86,11 @@ public class UserService {
 
 
     public UserDTO getUser() {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new UserDTO((UserModel) userRepo.findByUsername(userDetails.getUsername()));
+        if( !SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser") ){
+            UserModel userDetails = (UserModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            return new UserDTO(userRepo.findByUsername(userDetails.getUsername()));
+        }else throw new RuntimeException("Anonymous User dont have acces to this resource.");
+
     }
 
 

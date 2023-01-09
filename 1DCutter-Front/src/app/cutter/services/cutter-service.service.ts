@@ -25,6 +25,6 @@ export class CutterServiceService {
   }
 
   public updateProject(project: ProjectModel) {
-    return this.http.patch<any>(this.API_URL + "/users/orders/" + project.id, project);
+    return this.http.patch<any>(this.API_URL + "/user/project/" + project.id, project);
   }
 }

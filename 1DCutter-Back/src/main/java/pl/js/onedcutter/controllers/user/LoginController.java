@@ -14,7 +14,7 @@ import pl.js.onedcutter.models.user.AuthRequest;
 import pl.js.onedcutter.models.user.AuthResponse;
 import pl.js.onedcutter.services.UserService;
 
-@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "*" })
+@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "http://vps-b5ffb21c.vps.ovh.net", "http://217.182.73.214", "*" })
 @RestController
 @RequestMapping("/user")
 public class LoginController {

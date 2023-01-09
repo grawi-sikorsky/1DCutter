@@ -18,8 +18,8 @@ services:
 
   onedcutter-back:
     build:
-      context: ../1DCutter-Back
-    # image: apkatag:latest
+      context: ../../1DCutter-Back
+    #image: chodzi/dev-onedcutter-back:latest
     container_name: 1dcutter_back
     depends_on:
       - onedcutter-db
@@ -27,6 +27,7 @@ services:
       - onedcutter_network
     ports:
       - "8080:8080"
+      - "5005:5005"
     environment:
       - spring.datasource.url=jdbc:mysql://onedcutter-db:3306/onedcutter
     env_file:
@@ -34,12 +35,13 @@ services:
 
   onedcutter-front:
     build: 
-      context: ../1DCutter-Front
+      context: ../../1DCutter-Front
     container_name: 1dcutter_front
-    #image: 1dcutterangular
-    #image: docker-angular-cutter:latest
+    #image: chodzi/dev-onedcutter-front:latest
     depends_on:
       - onedcutter-back
+    networks:
+      - onedcutter_network
     ports:
       - "80:80"
     volumes:
