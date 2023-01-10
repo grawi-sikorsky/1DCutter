@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  onedcutter-db:
+    image: mysql:latest
+    container_name: 1dcutter_db
+    restart: always
+    networks:
+      - onedcutter_network
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    healthcheck:
+      interval: 25s
+      timeout: 10s
+      retries: 3
+
+  onedcutter-back:
+    build: ..
+    container_name: 1dcutter_back
+    depends_on:
+      - onedcutter-db
+    networks:
+      - onedcutter_network
+    ports:
+      - "8080:8080"
+      - "5005:5005" #remote debug
+    environment:
+      - spring.datasource.url=jdbc:mysql://onedcutter-db:3306/onedcutter
+    env_file:
+      - .env
+    healthcheck:
+      interval: 25s
+      timeout: 10s
+      retries: 3
+      
+networks:
+    onedcutter_network:
