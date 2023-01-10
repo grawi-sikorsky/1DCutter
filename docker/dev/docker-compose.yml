@@ -19,7 +19,6 @@ services:
   onedcutter-back:
     build:
       context: ../../1DCutter-Back
-    #image: chodzi/dev-onedcutter-back:latest
     container_name: 1dcutter_back
     depends_on:
       - onedcutter-db
@@ -27,7 +26,7 @@ services:
       - onedcutter_network
     ports:
       - "8080:8080"
-      - "5005:5005"
+      - "5005:5005" #remote debug
     environment:
       - spring.datasource.url=jdbc:mysql://onedcutter-db:3306/onedcutter
     env_file:
@@ -37,7 +36,6 @@ services:
     build: 
       context: ../../1DCutter-Front
     container_name: 1dcutter_front
-    #image: chodzi/dev-onedcutter-front:latest
     depends_on:
       - onedcutter-back
     networks:
@@ -47,20 +45,6 @@ services:
     volumes:
       - "/app/node_modules"
       - ".:/app"
-
-
-  # nginx:
-  #   container_name: endzinx
-  #   image: nginx:latest
-  #   restart: always
-  #   ports:
-  #     - "80:80"
-  #   network_mode: host
-  #   hostname: localhost
-  #   volumes:
-  #     - ./default.conf:/etc/nginx/conf.d
-  #   depends_on:
-  #     - applikejszyn
 
 networks:
   onedcutter_network:
