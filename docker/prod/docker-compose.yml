@@ -48,19 +48,5 @@ services:
       - "/app/node_modules"
       - ".:/app"
 
-
-  # nginx:
-  #   container_name: endzinx
-  #   image: nginx:latest
-  #   restart: always
-  #   ports:
-  #     - "80:80"
-  #   network_mode: host
-  #   hostname: localhost
-  #   volumes:
-  #     - ./default.conf:/etc/nginx/conf.d
-  #   depends_on:
-  #     - applikejszyn
-
 networks:
   onedcutter_network:
