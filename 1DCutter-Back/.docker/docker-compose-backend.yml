@@ -10,15 +10,14 @@ services:
     ports:
       - "3306:3306"
     env_file:
-      - ../../1DCutter-Back/.docker/.env
+      - .env
     healthcheck:
-      interval: 15s
+      interval: 25s
       timeout: 10s
       retries: 3
 
   onedcutter-back:
-    build:
-      context: ../../1DCutter-Back
+    build: ..
     container_name: 1dcutter_back
     depends_on:
       - onedcutter-db
@@ -30,21 +29,11 @@ services:
     environment:
       - spring.datasource.url=jdbc:mysql://onedcutter-db:3306/onedcutter
     env_file:
-      - ../../1DCutter-Back/.docker/.env
-
-  onedcutter-front:
-    build: 
-      context: ../../1DCutter-Front
-    container_name: 1dcutter_front
-    depends_on:
-      - onedcutter-back
-    networks:
-      - onedcutter_network
-    ports:
-      - "80:80"
-    volumes:
-      - "/app/node_modules"
-      - ".:/app"
-
+      - .env
+    healthcheck:
+      interval: 25s
+      timeout: 10s
+      retries: 3
+      
 networks:
-  onedcutter_network:
+    onedcutter_network:

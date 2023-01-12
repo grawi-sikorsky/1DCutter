@@ -6,6 +6,8 @@
 
 /node_modules
 
+.angular
+
 /e2e
 
 /docs

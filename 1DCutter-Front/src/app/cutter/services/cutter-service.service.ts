@@ -24,6 +24,7 @@ export class CutterServiceService {
       return this.http.post<ResultBarsModule>(this.API_URL + "/cutfree", project);
   }
 
+  // duplicate, remove
   public updateProject(project: ProjectModel) {
     return this.http.patch<any>(this.API_URL + "/user/project/" + project.id, project);
   }
