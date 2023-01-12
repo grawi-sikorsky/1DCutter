@@ -43,7 +43,7 @@ services:
     networks:
       - onedcutter_network
     ports:
-      - "80:80"
+      - "4100:4100"
     volumes:
       - "/app/node_modules"
       - ".:/app"
