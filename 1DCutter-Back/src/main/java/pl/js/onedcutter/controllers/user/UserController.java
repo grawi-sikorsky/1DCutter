@@ -15,7 +15,8 @@ import pl.js.onedcutter.dto.UserDTO;
 import pl.js.onedcutter.dto.UserUpdateDTO;
 import pl.js.onedcutter.services.UserService;
 
-@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "http://vps-b5ffb21c.vps.ovh.net", "http://217.182.73.214", "*" })
+
+@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "http://vps-b5ffb21c.vps.ovh.net", "http://217.182.73.214", "http://cutter.grawires.pl", "https://cutter.grawires.pl", "*" })
 @RequestMapping("/user")
 @RestController
 public class UserController {
