@@ -5,8 +5,8 @@ services:
     image: mysql:latest
     container_name: 1dcutter_db
     restart: always
-    networks:
-      - onedcutter_network
+    # networks:
+    #   - onedcutter_network
     ports:
       - "3306:3306"
     env_file:
@@ -24,13 +24,17 @@ services:
     restart: always
     depends_on:
       - onedcutter-db
-    networks:
-      - onedcutter_network
+    # networks:
+    #   - onedcutter_network
     ports:
       - "8080:8080"
+      - "8443:8443"
       - "5005:5005"
     environment:
-      - spring.datasource.url=jdbc:mysql://onedcutter-db:3306/onedcutter
+      spring.datasource.url: jdbc:mysql://onedcutter-db:3306/onedcutter
+      VIRTUAL_HOST: api.cutter.grawires.pl
+      LETSENCRYPT_HOST: api.cutter.grawires.pl
+      LETSENCRYPT_EMAIL: grawires@gmail.com
     env_file:
       - .env
 

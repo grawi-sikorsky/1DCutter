@@ -11,3 +11,13 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+server:
+  ssl:
+    # key-store: classpath:cutterssl.jks
+    # key-store-type: pkcs12
+    # key-store-password: password
+    # key-password: password
+    # key-alias: cutterssl
+    enabled: true
+  port: 8443
