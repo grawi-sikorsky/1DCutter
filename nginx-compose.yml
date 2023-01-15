@@ -18,6 +18,7 @@ services:
       - /home/debian/nginx-proxy/vhost.d:/etc/nginx/vhost.d
       - /home/debian/nginx-proxy/html:/usr/share/nginx/html
       - /home/debian/nginx-proxy/certs:/etc/nginx/certs:ro
+    # command: bash -c "apt-get update && apt-get install nano -y && bash"
 
   nginx-gen:
     image: jwilder/docker-gen

@@ -16,8 +16,9 @@
         {
             "type": "java",
             "name": "Debug VPS (Attach)",
-            "projectName": "MyApplication",
+            "projectName": "onedcutter",
             "request": "attach",
+            // "hostName": "cutter.grawires.pl",
             "hostName": "217.182.73.214",
             "port": 5005
         }

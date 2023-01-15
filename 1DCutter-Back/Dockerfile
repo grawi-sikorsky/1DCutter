@@ -11,10 +11,5 @@ FROM openjdk:17-alpine
 COPY --from=build ./target/*.jar ./
 ENV JAVA_TOOL_OPTIONS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/onedcutter-0.1.0-SNAPSHOT.jar"]
-
-# COPY /home/debian/nginx-proxy/certs/api.cutter.grawires.pl/* /src/main/resources/
-
-# RUN \
-#         openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out cert.pkcs12
-
-# EXPOSE 8443
+EXPOSE 8080
+EXPOSE 5005
