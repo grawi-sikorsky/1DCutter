@@ -18,8 +18,7 @@
             "name": "Debug VPS (Attach)",
             "projectName": "onedcutter",
             "request": "attach",
-            // "hostName": "cutter.grawires.pl",
-            "hostName": "217.182.73.214",
+            "hostName": "api.cutter.grawires.pl",
             "port": 5005
         }
     ]

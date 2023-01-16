@@ -60,8 +60,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: () => { return localStorage.getItem("jwtToken") },
-        allowedDomains: ["localhost:8080","vps-b5ffb21c.vps.ovh.net:8080", environment.API_URL],
-        disallowedRoutes: ["localhost:8080/auth/login","vps-b5ffb21c.vps.ovh.net:8080/auth/login", environment.API_URL+"/auth/login" ],
+        allowedDomains: ["localhost:8080","vps-b5ffb21c.vps.ovh.net:8080", "api.cutter.grawires.pl", environment.API_URL],
+        disallowedRoutes: ["localhost:8080/auth/login","vps-b5ffb21c.vps.ovh.net:8080/auth/login", "api.cutter.grawires.pl/auth/login", environment.API_URL+"/auth/login" ],
       },
     }),
   ],

@@ -21,7 +21,7 @@ import pl.js.onedcutter.services.ProjectService;
 
 @ApiOperation(value = "", authorizations = { @Authorization(value = "jwtToken") })
 
-@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "https://api.cutter.grawires.pl", "http://217.182.73.214", "http://cutter.grawires.pl", "https://cutter.grawires.pl", "*" })
+@CrossOrigin(origins = { "http://localhost:4200", "http://10.0.2.2:8080", "http://localhost", "https://api.cutter.grawires.pl", "http://217.182.73.214", "http://cutter.grawires.pl", "https://cutter.grawires.pl", "http://api.cutter.grawires.pl", "*" })
 @RestController
 @RequestMapping("/user/project")
 public class ProjectController {
