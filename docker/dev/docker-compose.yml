@@ -20,6 +20,7 @@ services:
     build:
       context: ../../1DCutter-Back
     container_name: 1dcutter_back
+    restart: always
     depends_on:
       - onedcutter-db
     networks:
@@ -35,7 +36,9 @@ services:
   onedcutter-front:
     build: 
       context: ../../1DCutter-Front
+      dockerfile: Dockerfile-dev
     container_name: 1dcutter_front
+    restart: always
     depends_on:
       - onedcutter-back
     networks:
