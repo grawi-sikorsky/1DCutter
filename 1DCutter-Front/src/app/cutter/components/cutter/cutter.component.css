@@ -1,5 +1,9 @@
 
 /*** 1D Stock Cut style ***/
+.main-cutter-container{
+  display: block;
+}
+
 #add-btn
 {
 	float:right;

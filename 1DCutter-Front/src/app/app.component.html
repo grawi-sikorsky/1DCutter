@@ -1,5 +1,12 @@
-<div class="mat-app-background" [ngClass]="this.isDark ? 'dark-mode' : 'light-mode' ">
-    <router-outlet></router-outlet>
+<div class="body-wrapper">
+  <div class="content-wrapper">
+    <div class="mat-app-background" [ngClass]="this.isDark ? 'dark-mode' : 'light-mode'">
 
-    <app-footer></app-footer>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+
 </div>

@@ -12,6 +12,14 @@
             "projectName": "onedcutter",
             "envFile": "${workspaceFolder}/.docker/.env",
             
+        },
+        {
+            "type": "java",
+            "name": "Debug VPS (Attach)",
+            "projectName": "onedcutter",
+            "request": "attach",
+            "hostName": "api.cutter.grawires.pl",
+            "port": 5005
         }
     ]
 }

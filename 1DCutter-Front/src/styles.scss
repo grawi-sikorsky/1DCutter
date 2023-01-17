@@ -44,16 +44,11 @@ $OneDCutter-A-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html {
-  height: 100%;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 4rem;
-  min-height: 100%;
-}
+
+
 
 @import '@angular/material/theming';
 // TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
@@ -105,5 +100,3 @@ $app-dark-theme: mat.define-dark-theme($mat-primary-palette, $mat-accent-palette
 .dark-mode{
   @include mat.all-legacy-component-themes($app-dark-theme);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
