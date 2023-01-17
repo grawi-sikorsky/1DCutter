@@ -1,7 +1,11 @@
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 4rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+.body-wrapper{
+  //text-align:center;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+.content-wrapper{
+  flex: 1;
+  // padding: 15px;
 }
