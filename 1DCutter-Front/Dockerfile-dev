@@ -3,7 +3,7 @@ FROM node:slim as node
 WORKDIR /app
 COPY . .
 RUN npm install --prefer-offline
-RUN npm run build:development
+RUN npm run ng serve
 
 # stage 2
 FROM nginx:latest
